@@ -146,3 +146,49 @@ const styles = StyleSheet.create({
 ```
 ### スタイルを当てたイメージ
 ![sp](siteImage/1.png)
+
+
+## keyboardAvoidingViewを使って入力部分を作る
+- `keyboardAvoidingView`を使うことでラップした部分をkeybord入力ができる
+```js
+//importから
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  //これがキーボード
+  KeyboardAvoidingView,
+  StyleSheet,
+}
+
+// それでラップする
+export default class Login extends Component {
+  render() {
+    return (
+      <KeyboardAvoidingView style={styles.container}>
+        <View style={styles.loginwrap}>
+          <Image
+          style={styles.logo}
+          source={require('./img/icon.png')}/>
+          <Text style={styles.title}>A simple login App</Text>
+        </View>
+        <View style={styles.myform}>
+          <Myform />
+        </View>
+      </KeyboardAvoidingView>
+    );
+  }
+}
+```
+- ただそのままラップすると覆いかぶさってしまうので、optionを使う
+
+```js
+<KeyboardAvoidingView behavior="padding" style={styles.container}>
+それがこれ[behavior="padding"]
+これをつけるだけで下のようになる
+```
+### スタイルを当てたイメージ
+![sp](siteImage/2.png)
+
+- https://facebook.github.io/react-native/docs/keyboardavoidingview.html　詳しくはドキュメント記載されてる

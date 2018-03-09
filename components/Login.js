@@ -7,13 +7,14 @@ import {
   Text,
   Image,
   Dimensions,
+  KeyboardAvoidingView,
   StyleSheet,
 } from 'react-native';
 
 export default class Login extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.loginwrap}>
           <Image
           style={styles.logo}
@@ -23,7 +24,7 @@ export default class Login extends Component {
         <View style={styles.myform}>
           <Myform />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
