@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { Component } from 'react';
+import Myform from './Myform';
 import {
   View,
   Text,
@@ -17,6 +18,10 @@ export default class Login extends Component {
           <Image
           style={styles.logo}
           source={require('./img/icon.png')}/>
+          <Text style={styles.title}>A simple login App</Text>
+        </View>
+        <View style={styles.myform}>
+          <Myform />
         </View>
       </View>
     );
@@ -37,6 +42,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 100,
+  },
+  myform: {
+    flex: 1,
+
+  },
+  title: {
+    color: '#fff',
+    marginTop: 10,
   },
 
 });

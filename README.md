@@ -66,3 +66,83 @@ const styles = StyleSheet.create({
   },
 
 ```
+
+## TextInputを使って入力できるフォームを作る
+- input用のコンポーネントを作成してimportで`TextInput`を使う placeholderのつづりまちがえるので注意
+```js
+import {
+  View,
+  Text,
+  //これを読み込む
+  TextInput,
+  //これはタップでopacityがかかるやつ
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+```
+
+```js
+//使い方
+<TextInput
+  placeholder="Username"
+  style={styles.input}
+/>
+```
+
+## TouchableOpacityの使い方
+```js
+export default class Myform extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <TextInput
+          placeholder="Username"
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Password"
+          style={styles.input}
+        />
+        //これでラップをしてあげるだけ、opacity効果がある
+        <TouchableOpacity>
+          <Text>button</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+```
+
+- paddingVerticalを使うと全方向にpadding効く
+```js
+
+<TouchableOpacity style={styles.buttonwrap}>
+  <Text style={styles.buttonText}>Login</Text>
+</TouchableOpacity>
+
+//styleを当てると
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+  input: {
+    height: 40,
+    backgroundColor: 'rgba(255,255,255,0.7)',
+    paddingLeft: 10,
+    marginBottom: 15,
+  },
+  buttonwrap: {
+    backgroundColor: '#27ae60',
+    paddingVertical: 15,
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontWeight: 'bold',
+
+  },
+```
+### スタイルを当てたイメージ
+![sp](siteImage/1.png)
